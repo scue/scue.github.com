@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Hello World!
-tagline: Supporting tagline
+title: Scue's Blog
+tagline: I love linux & android. (｢・ω・)｢ (´・ω・｀)
 ---
 {% include JB/setup %}
 
