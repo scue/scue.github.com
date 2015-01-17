@@ -3,7 +3,7 @@ layout: post
 title: "Ubuntu 14.04.1 Install Jekyll"
 description: ""
 category: 
-tags: [Ubuntu Jekyll]
+tags: [Ubuntu,Jekyll]
 ---
 {% include JB/setup %}
 
