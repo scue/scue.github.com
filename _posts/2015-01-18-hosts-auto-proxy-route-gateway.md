@@ -106,13 +106,13 @@ HowTo
 
         sudo vi /etc/ppp/ip-up.d/route-traffic # 输入以下内容
         #!/bin/bash
-        (cd /path/to/this_project_src && sudo sudo ./pptp_route.sh on)
+        (cd /path/to/this_project_src && sudo ./pptp_route.sh on)
 
     在关闭VPN时关闭这些规则
 
         sudo vi /etc/ppp/ip-down.d/route-traffic # 输入以下内容
         #!/bin/bash
-        (cd /path/to/this_project_src && sudo sudo ./pptp_route.sh off)
+        (cd /path/to/this_project_src && sudo ./pptp_route.sh off)
 
     注意，不要忘记给 `/etc/ppp/ip-up.d/route-traffic` 和 `/etc/ppp/ip-down.d/route-traffic`可执行权限
 
@@ -123,7 +123,7 @@ HowTo
 
     可以这么做，把从ppp0出去的包都做一个nat转发，这里只需要一行命令即可：
 
-        sudo iptables -C -t nat -A POSTROUTING -o ppp0 -j MASQUERADE || \
+        sudo iptables -t nat -C POSTROUTING -o ppp0 -j MASQUERADE || \
             sudo iptables -t nat -A POSTROUTING -o ppp0 -j MASQUERADE
 
     当然，我在脚本pptp_route.sh已经把这件事情帮你给做到了，Enjoy！
@@ -141,10 +141,10 @@ Summary
     # 2. 配置VPN
     sudo vi /etc/ppp/ip-up.d/route-traffic # 输入以下内容
     #!/bin/bash
-    (cd /home/YOURNAME/hosts_auto_proxy && sudo sudo ./pptp_route.sh on)
+    (cd /home/YOURNAME/hosts_auto_proxy && sudo ./pptp_route.sh on)
     sudo vi /etc/ppp/ip-down.d/route-traffic # 输入以下内容
     #!/bin/bash
-    (cd /path/to/this_project_src && sudo sudo ./pptp_route.sh off)
+    (cd /path/to/this_project_src && sudo ./pptp_route.sh off)
     sudo chmod +x /etc/ppp/ip-up.d/route-traffic
     sudo chmod +x /etc/ppp/ip-down.d/route-traffic 
 
